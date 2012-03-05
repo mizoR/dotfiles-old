@@ -22,6 +22,8 @@ filetype plugin on
 
 let g:neocomplcache_enable_at_startup = 1
 
-set ts=2
+set number
+set tabstop=2
+set shiftwidth=2
 set expandtab
-
+set noautoindent
