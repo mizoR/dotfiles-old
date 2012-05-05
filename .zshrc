@@ -1,0 +1,1 @@
+/home/ryutaro/.oh-my-zsh/templates/zshrc.zsh-template
