@@ -12,6 +12,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'quickrun.vim'
 
 filetype indent plugin on
 
@@ -46,3 +47,4 @@ if has("autocmd")
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 endif
+
