@@ -12,7 +12,6 @@ $ vim +BundleInstall! +q
 # install
 $ cd
 $ mkdir ~/local
-$ git clone git://github.com/sstephenson/rbenv.git .rbenv
 $ git clone git://github.com/sstephenson/ruby-build.git
 $ cd ruby-build
 $ PREFIX=$HOME/local ./install.sh

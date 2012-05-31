@@ -7,3 +7,6 @@
 [submodule "/Users/m237/.vim/bundle/vundle"]
 	path = /Users/m237/.vim/bundle/vundle
 	url = git://github.com/gmarik/vundle.git
+[submodule ".rbenv"]
+	path = .rbenv
+	url = git://github.com/sstephenson/rbenv.git
