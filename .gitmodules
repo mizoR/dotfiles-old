@@ -1,15 +1,20 @@
 [submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
+  path = .oh-my-zsh
+  url = git://github.com/robbyrussell/oh-my-zsh.git
+  ignore = untracked
 [submodule ".zsh-completions"]
-	path = .zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
-[submodule "/Users/m237/.vim/bundle/vundle"]
-	path = .vim/bundle/vundle
-	url = git://github.com/gmarik/vundle.git
+  path = .zsh-completions
+  url = git://github.com/zsh-users/zsh-completions.git
+  ignore = untracked
+[submodule ".vim/bundle/vundle"]
+  path = .vim/bundle/vundle
+  url = git://github.com/gmarik/vundle.git
+  ignore = untracked
 [submodule ".rbenv"]
-	path = .rbenv
-	url = git://github.com/sstephenson/rbenv.git
+  path = .rbenv
+  url = git://github.com/sstephenson/rbenv.git
+  ignore = untracked
 [submodule "ruby-build"]
-	path = ruby-build
-	url = git://github.com/sstephenson/ruby-build.git
+  path = ruby-build
+  url = git://github.com/sstephenson/ruby-build.git
+  ignore = untracked
