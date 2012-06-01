@@ -8,13 +8,11 @@ $ git submodule update
 $ ./setup.sh
 $ vim +BundleInstall! +q
 
-## Install rbenv
-# install
+## For ruby
+# install ruby-build
 $ PREFIX=$HOME/local ./ruby-build/install.sh
 
-# cleanup temporary files
-$ cd
-$ rm -rf ruby-build
+# install ruby
 $ ruby-build --definitions
 $ rbenv install [ruby-version]
 $ rbenv global [ruby-version]
