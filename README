@@ -12,7 +12,7 @@ $ vim +BundleInstall! +q
 # install ruby-build
 $ cd ruby-build
 $ PREFIX=$HOME/local ./install.sh
-$ echo export PATH=$HOME/.rbenv/bin:$PATH >> $HOME/.zshenv.local
+$ echo 'path=($HOME/.rbenv/bin(N) $path)' >> ~/.zshenv.local
 $ echo 'eval "$(rbenv init -)"' >> ~/.zshenv.local
 
 # install ruby
