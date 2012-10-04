@@ -1,5 +1,5 @@
 # for private
-path=($HOME/local/bin(N) $path)
+path=($HOME/local/bin(N) /usr/local/bin(N) $path)
 
 # for zsenv.local
 touch $HOME/.zshenv.local
