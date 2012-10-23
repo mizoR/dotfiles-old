@@ -34,3 +34,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+alias rserver="ruby -r webrick -e \"WEBrick::HTTPServer.new(Port: 8000, DocumentRoot: File.join(Dir::pwd, ARGV.shift || 'html')).tap {|s| trap('INT') { s.shutdown } }.start\""
