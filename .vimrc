@@ -41,6 +41,9 @@ if has("autocmd")
   autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb
   autocmd BufNewFile *.sh 0r ~/.vim/skeletons/skeleton.sh
 
+  " for Skelton local
+  autocmd BufNewFile *.local.txt 0r ~/.vim/skeletons/skeleton.local.txt
+
   " for Indent
   autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et

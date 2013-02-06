@@ -1,3 +1,4 @@
 /.vim/bundle/*
 !/.vim/bundle/vundle
 /.vim/.netrwhist
+/.vim/skeletons/skeleton.local.*
