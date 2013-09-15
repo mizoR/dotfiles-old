@@ -49,7 +49,11 @@ debug() {
 
 run() {
   debug $@
-  $@
+  if [ $LOGLEVEL -eq $LOGLEVEL_DEBUG ]; then
+    $@
+  else
+    $@ >/dev/null
+  fi
 }
 
 init() {
