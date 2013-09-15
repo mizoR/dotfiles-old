@@ -55,9 +55,7 @@ run() {
 init() {
   (
     run cd $DOTFILES_PATH
-
     run git submodule init
-
     run git submodule update
   )
 }
@@ -107,11 +105,8 @@ update() {
 
   (
     run cd $DOTFILES_PATH
-
     run git pull origin `git symbolic-ref --short HEAD`
-
-    run git submodule foreach \'git pull origin master\'
-
+    run git submodule foreach 'git pull origin master'
     run git submodule update
   )
 
