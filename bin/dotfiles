@@ -47,16 +47,18 @@ debug() {
   fi
 }
 
+run() {
+  debug $@
+  $@
+}
+
 init() {
   (
-    debug cd $DOTFILES_PATH
-    cd $DOTFILES_PATH
+    run cd $DOTFILES_PATH
 
-    debug git submodule init
-    git submodule init
+    run git submodule init
 
-    debug git submodule update
-    git submodule update
+    run git submodule update
   )
 }
 
@@ -64,13 +66,11 @@ install_zsh() {
   info Installing zsh dotfiles...
 
   if [ ! -L $HOME/.oh-my-zsh ]; then
-    debug ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
-    ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+    run ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
   fi
 
   if [ ! -L $HOME/.zshrc ]; then
-    debug ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
-    ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+    run ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
   fi
 
   info Finished.
@@ -80,17 +80,14 @@ install_vim() {
   info Installing vim dotfiles...
 
   if [ ! -L $HOME/.vim ]; then
-    debug ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
-    ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+    run ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
   fi
 
   if [ ! -L $HOME/.vimrc ]; then
-    debug ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
-    ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+    run ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
   fi
 
-  debug vim -c NeoBundleInstall -c "q!"
-  vim -c NeoBundleInstall -c "q!"
+  run vim -c NeoBundleInstall -c "q!"
 
   info Finished.
 }
@@ -99,8 +96,7 @@ install_tmux() {
   info Installing tmux dotfiles...
 
   if [ ! -L $HOME/.tmux.conf ]; then
-    debug ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
-    ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+    run ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
   fi
 
   info Finished.
@@ -110,18 +106,13 @@ update() {
   info Updating dotfiles...
 
   (
-    debug cd $DOTFILES_PATH
-    cd $DOTFILES_PATH
+    run cd $DOTFILES_PATH
 
-    local branch=`git symbolic-ref --short HEAD`
-    debug git pull origin $branch
-    git pull origin $branch
+    run git pull origin `git symbolic-ref --short HEAD`
 
-    debug git submodule foreach \'git pull origin master\'
-    git submodule foreach 'git pull origin master'
+    run git submodule foreach \'git pull origin master\'
 
-    debug git submodule update
-    git submodule update
+    run git submodule update
   )
 
   info Finished.
@@ -136,6 +127,13 @@ case "$1" in
     ;;
   update)
     update
+    ;;
+  *)
+    $COLOR_WARN
+    echo "Unknow option: $@"
+    $COLOR_INFO
+    echo "usage: ~/dotfiles/bin/dotfiles [install|update]"
+    $COLOR_NORMAL
     ;;
 esac
 
