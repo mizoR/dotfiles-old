@@ -106,12 +106,34 @@ install_tmux() {
   info Finished.
 }
 
+update() {
+  info Updating dotfiles...
+
+  (
+    debug cd $DOTFILES_PATH
+    cd $DOTFILES_PATH
+
+    debug git submodule foreach \'git pull origin master\'
+    git submodule foreach 'git pull origin master'
+
+    debug git submodule update
+    git submodule update
+  )
+
+  info Finished.
+}
+
 case "$1" in
   install)
     init
     install_zsh
     install_vim
     install_tmux
-    exit 0
+    ;;
+  update)
+    update
+    ;;
 esac
+
+exit 0
 
