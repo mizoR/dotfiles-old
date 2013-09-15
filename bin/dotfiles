@@ -122,6 +122,16 @@ install_rbenv() {
   info Finished.
 }
 
+install_git() {
+  info Installing git dotfiles...
+
+  if [ ! -L $HOME/.gitignore ]; then
+    run ln -s $DOTFILES_PATH/git/dot.gitignore $HOME/.gitignore
+  fi
+
+  info Finished.
+}
+
 update() {
   info Updating dotfiles...
 
@@ -142,6 +152,7 @@ case "$1" in
     install_vim
     install_tmux
     install_rbenv
+    install_git
     ;;
   update)
     update
