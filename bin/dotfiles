@@ -61,6 +61,10 @@ init() {
     run cd $DOTFILES_PATH
     run git submodule init
     run git submodule update
+    run mkdir -p $DOTFILES_PATH/rbenv/plugins
+    if [ ! -d $DOTFILES_PATH/rbenv/plugins/ruby-build ]; then
+      run git clone git@github.com:sstephenson/ruby-build.git $DOTFILES_PATH/rbenv/plugins/ruby-build
+    fi
   )
 }
 
@@ -73,6 +77,10 @@ install_zsh() {
 
   if [ ! -L $HOME/.zshrc ]; then
     run ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+  fi
+
+  if [ ! -L $HOME/.zprofile ]; then
+    run ln -s $DOTFILES_PATH/zsh/dot.zprofile $HOME/.zprofile
   fi
 
   info Finished.
@@ -104,6 +112,16 @@ install_tmux() {
   info Finished.
 }
 
+install_rbenv() {
+  info Installing rbenv dotfiles...
+
+  if [ ! -L $HOME/.rbenv ]; then
+    run ln -s $DOTFILES_PATH/rbenv $HOME/.rbenv
+  fi
+
+  info Finished.
+}
+
 update() {
   info Updating dotfiles...
 
@@ -123,6 +141,7 @@ case "$1" in
     install_zsh
     install_vim
     install_tmux
+    install_rbenv
     ;;
   update)
     update
