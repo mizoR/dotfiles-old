@@ -76,11 +76,11 @@ install_zsh() {
   fi
 
   if [ ! -L $HOME/.zshrc ]; then
-    run ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+    run ln -s $DOTFILES_PATH/dot.zshrc $HOME/.zshrc
   fi
 
   if [ ! -L $HOME/.zprofile ]; then
-    run ln -s $DOTFILES_PATH/zsh/dot.zprofile $HOME/.zprofile
+    run ln -s $DOTFILES_PATH/dot.zprofile $HOME/.zprofile
   fi
 
   info Finished.
@@ -90,11 +90,11 @@ install_vim() {
   info Installing vim dotfiles...
 
   if [ ! -L $HOME/.vim ]; then
-    run ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+    run ln -s $DOTFILES_PATH/dot.vim $HOME/.vim
   fi
 
   if [ ! -L $HOME/.vimrc ]; then
-    run ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+    run ln -s $DOTFILES_PATH/dot.vimrc $HOME/.vimrc
   fi
 
   run vim -c NeoBundleInstall -c "q!"
@@ -106,7 +106,7 @@ install_tmux() {
   info Installing tmux dotfiles...
 
   if [ ! -L $HOME/.tmux.conf ]; then
-    run ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+    run ln -s $DOTFILES_PATH/dot.tmux.conf $HOME/.tmux.conf
   fi
 
   info Finished.
@@ -126,7 +126,7 @@ install_git() {
   info Installing git dotfiles...
 
   if [ ! -L $HOME/.gitignore ]; then
-    run ln -s $DOTFILES_PATH/git/dot.gitignore $HOME/.gitignore
+    run ln -s $DOTFILES_PATH/dot.gitignore $HOME/.gitignore
   fi
 
   info Finished.
