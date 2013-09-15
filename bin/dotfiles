@@ -1,0 +1,117 @@
+#!/bin/bash
+
+DOTFILES_PATH=$(cd "$(dirname $0)/..";pwd)
+
+COLOR_ERROR="echo -en \\033[1;31;1m"
+COLOR_WARN="echo -en \\033[1;35;1m"
+COLOR_INFO="echo -en \\033[1;32m"
+COLOR_DEBUG="echo -en \\033[1;34m"
+COLOR_NORMAL="echo -en \\033[0;39m"
+
+LOGLEVEL_ERROR=3
+LOGLEVEL_WARN=2
+LOGLEVEL_INFO=1
+LOGLEVEL_DEBUG=0
+
+LOGLEVEL=$LOGLEVEL_DEBUG
+
+error() {
+  if [ $LOGLEVEL -le $LOGLEVEL_ERROR ]; then
+    $COLOR_ERROR
+    echo "[E `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+warn() {
+  if [ $LOGLEVEL -le $LOGLEVEL_WARN ]; then
+    $COLOR_WARN
+    echo "[W `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+info() {
+  if [ $LOGLEVEL -le $LOGLEVEL_INFO ]; then
+    $COLOR_INFO
+    echo "[I `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+debug() {
+  if [ $LOGLEVEL -le $LOGLEVEL_DEBUG ]; then
+    $COLOR_DEBUG
+    echo "[D `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+init() {
+  (
+    debug cd $DOTFILES_PATH
+    cd $DOTFILES_PATH
+
+    debug git submodule init
+    git submodule init
+
+    debug git submodule update
+    git submodule update
+  )
+}
+
+install_zsh() {
+  info Installing zsh dotfiles...
+
+  if [ ! -L $HOME/.oh-my-zsh ]; then
+    debug ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+    ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+  fi
+
+  if [ ! -L $HOME/.zshrc ]; then
+    debug ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+    ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+  fi
+
+  info Finished.
+}
+
+install_vim() {
+  info Installing vim dotfiles...
+
+  if [ ! -L $HOME/.vim ]; then
+    debug ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+    ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+  fi
+
+  if [ ! -L $HOME/.vimrc ]; then
+    debug ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+    ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+  fi
+
+  debug vim -c NeoBundleInstall -c "q!"
+  vim -c NeoBundleInstall -c "q!"
+
+  info Finished.
+}
+
+install_tmux() {
+  info Installing tmux dotfiles...
+
+  if [ ! -L $HOME/.tmux.conf ]; then
+    debug ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+    ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+  fi
+
+  info Finished.
+}
+
+case "$1" in
+  install)
+    init
+    install_zsh
+    install_vim
+    install_tmux
+    exit 0
+esac
+
