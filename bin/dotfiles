@@ -95,11 +95,23 @@ install_vim() {
   info Finished.
 }
 
+install_tmux() {
+  info Installing tmux dotfiles...
+
+  if [ ! -L $HOME/.tmux.conf ]; then
+    debug ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+    ln -s $DOTFILES_PATH/tmux/dot.tmux.conf $HOME/.tmux.conf
+  fi
+
+  info Finished.
+}
+
 case "$1" in
   install)
     init
     install_zsh
     install_vim
+    install_tmux
     exit 0
 esac
 
