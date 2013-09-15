@@ -7,3 +7,6 @@
 [submodule "dot.vim/bundle/neobundle.vim"]
 	path = dot.vim/bundle/neobundle.vim
 	url = git@github.com:Shougo/neobundle.vim.git
+[submodule "dot.zsh-completions"]
+	path = dot.zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git
