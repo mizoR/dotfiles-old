@@ -1,0 +1,81 @@
+#!/bin/bash
+
+DOTFILES_PATH=$(cd "$(dirname $0)/..";pwd)
+
+COLOR_ERROR="echo -en \\033[1;31;1m"
+COLOR_WARN="echo -en \\033[1;35;1m"
+COLOR_INFO="echo -en \\033[1;32m"
+COLOR_DEBUG="echo -en \\033[1;34m"
+COLOR_NORMAL="echo -en \\033[0;39m"
+
+LOGLEVEL_ERROR=3
+LOGLEVEL_WARN=2
+LOGLEVEL_INFO=1
+LOGLEVEL_DEBUG=0
+
+LOGLEVEL=$LOGLEVEL_DEBUG
+
+error() {
+  if [ $LOGLEVEL -le $LOGLEVEL_ERROR ]; then
+    $COLOR_ERROR
+    echo "[E `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+warn() {
+  if [ $LOGLEVEL -le $LOGLEVEL_WARN ]; then
+    $COLOR_WARN
+    echo "[W `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+info() {
+  if [ $LOGLEVEL -le $LOGLEVEL_INFO ]; then
+    $COLOR_INFO
+    echo "[I `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+debug() {
+  if [ $LOGLEVEL -le $LOGLEVEL_DEBUG ]; then
+    $COLOR_DEBUG
+    echo "[D `date`] $@"
+    $COLOR_NORMAL
+  fi
+}
+
+init() {
+  (
+    debug cd $DOTFILES_PATH
+    cd $DOTFILES_PATH
+
+    debug git submodule init
+    git submodule init
+
+    debug git submodule update
+    git submodule update
+  )
+}
+
+install_zsh() {
+  debug ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+  if [ ! -L $HOME/.oh-my-zsh ]; then
+    ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+  fi
+
+  debug ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+  if [ ! -L $HOME/.zshrc ]; then
+    ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
+  fi
+}
+
+case "$1" in
+  install)
+    init
+    install_zsh
+    exit 0
+esac
+
