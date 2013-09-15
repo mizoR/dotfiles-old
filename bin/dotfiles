@@ -56,7 +56,28 @@ run() {
   fi
 }
 
+symlinks() {
+  info == Start symlinks
+  dotfiles=$(ls $DOTFILES_PATH | grep -E '^dot\.')
+  for dotfile in $dotfiles; do
+    local new_dotfile=$(echo $dotfile | sed s/^dot//)
+    info Linking $new_dotfile...
+    if [ -L $HOME/$new_dotfile ]; then
+      run rm $HOME/$new_dotfile
+    fi
+    run ln -fs $DOTFILES_PATH/$dotfile $HOME/$new_dotfile
+  done
+  info == Finish symlinks
+}
+
+after_symlinks() {
+  info == Start after_symlinks
+  run vim -c NeoBundleInstall -c "q!"
+  info == Finish after_symlinks
+}
+
 init() {
+  info == Start init
   (
     run cd $DOTFILES_PATH
     run git submodule init
@@ -66,93 +87,25 @@ init() {
       run git clone git@github.com:sstephenson/ruby-build.git $DOTFILES_PATH/dot.rbenv/plugins/ruby-build
     fi
   )
-}
-
-install_zsh() {
-  info Installing zsh dotfiles...
-
-  if [ ! -L $HOME/.oh-my-zsh ]; then
-    run ln -s $DOTFILES_PATH/dot.oh-my-zsh $HOME/.oh-my-zsh
-  fi
-
-  if [ ! -L $HOME/.zshrc ]; then
-    run ln -s $DOTFILES_PATH/dot.zshrc $HOME/.zshrc
-  fi
-
-  if [ ! -L $HOME/.zprofile ]; then
-    run ln -s $DOTFILES_PATH/dot.zprofile $HOME/.zprofile
-  fi
-
-  info Finished.
-}
-
-install_vim() {
-  info Installing vim dotfiles...
-
-  if [ ! -L $HOME/.vim ]; then
-    run ln -s $DOTFILES_PATH/dot.vim $HOME/.vim
-  fi
-
-  if [ ! -L $HOME/.vimrc ]; then
-    run ln -s $DOTFILES_PATH/dot.vimrc $HOME/.vimrc
-  fi
-
-  run vim -c NeoBundleInstall -c "q!"
-
-  info Finished.
-}
-
-install_tmux() {
-  info Installing tmux dotfiles...
-
-  if [ ! -L $HOME/.tmux.conf ]; then
-    run ln -s $DOTFILES_PATH/dot.tmux.conf $HOME/.tmux.conf
-  fi
-
-  info Finished.
-}
-
-install_rbenv() {
-  info Installing rbenv dotfiles...
-
-  if [ ! -L $HOME/.rbenv ]; then
-    run ln -s $DOTFILES_PATH/dot.rbenv $HOME/.rbenv
-  fi
-
-  info Finished.
-}
-
-install_git() {
-  info Installing git dotfiles...
-
-  if [ ! -L $HOME/.gitignore ]; then
-    run ln -s $DOTFILES_PATH/dot.gitignore $HOME/.gitignore
-  fi
-
-  info Finished.
+  info == Finish init
 }
 
 update() {
-  info Updating dotfiles...
-
+  info == Start update
   (
     run cd $DOTFILES_PATH
     run git pull origin `git symbolic-ref --short HEAD`
     run git submodule foreach 'git pull origin master'
     run git submodule update
   )
-
-  info Finished.
+  info == Finish update
 }
 
 case "$1" in
   install)
     init
-    install_zsh
-    install_vim
-    install_tmux
-    install_rbenv
-    install_git
+    symlinks
+    after_symlinks
     ;;
   update)
     update
