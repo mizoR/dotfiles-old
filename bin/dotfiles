@@ -113,6 +113,10 @@ update() {
     debug cd $DOTFILES_PATH
     cd $DOTFILES_PATH
 
+    local branch=`git symbolic-ref --short HEAD`
+    debug git pull origin $branch
+    git pull origin $branch
+
     debug git submodule foreach \'git pull origin master\'
     git submodule foreach 'git pull origin master'
 
