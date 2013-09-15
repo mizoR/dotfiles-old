@@ -61,21 +61,45 @@ init() {
 }
 
 install_zsh() {
-  debug ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
+  info Installing zsh dotfiles...
+
   if [ ! -L $HOME/.oh-my-zsh ]; then
+    debug ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
     ln -s $DOTFILES_PATH/oh-my-zsh $HOME/.oh-my-zsh
   fi
 
-  debug ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
   if [ ! -L $HOME/.zshrc ]; then
+    debug ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
     ln -s $DOTFILES_PATH/zsh/dot.zshrc $HOME/.zshrc
   fi
+
+  info Finished.
+}
+
+install_vim() {
+  info Installing vim dotfiles...
+
+  if [ ! -L $HOME/.vim ]; then
+    debug ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+    ln -s $DOTFILES_PATH/vim/dot.vim $HOME/.vim
+  fi
+
+  if [ ! -L $HOME/.vimrc ]; then
+    debug ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+    ln -s $DOTFILES_PATH/vim/dot.vimrc $HOME/.vimrc
+  fi
+
+  debug vim -c NeoBundleInstall -c "q!"
+  vim -c NeoBundleInstall -c "q!"
+
+  info Finished.
 }
 
 case "$1" in
   install)
     init
     install_zsh
+    install_vim
     exit 0
 esac
 
