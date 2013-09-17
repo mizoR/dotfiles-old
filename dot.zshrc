@@ -55,3 +55,7 @@ if [ -L ~/.zsh-completions ]; then
   autoload -U compinit; compinit
 fi
 
+for file in ~/.{aliases,functions}; do
+  [ -r "$file" ] && source "$file"
+done
+
