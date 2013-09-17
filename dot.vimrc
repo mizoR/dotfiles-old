@@ -16,6 +16,18 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 
+" カラースキーム
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Lucius'
+NeoBundle 'vim-scripts/Zenburn'
+NeoBundle 'mrkn/mrkn256.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'therubymug/vim-pyte'
+NeoBundle 'tomasr/molokai'
+
 syntax on
 filetype plugin on
 filetype indent on
@@ -38,6 +50,10 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" カラースキーム
+set background=dark
+colorscheme jellybeans
 
 if has("autocmd")
   " スケルトン
