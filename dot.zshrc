@@ -44,6 +44,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 if [ -L ~/.rbenv ]; then
+  export RBENV_ROOT=$HOME/.rbenv
+  export PATH=$RBENV_ROOT/bin:$PATH
+  export PATH=$RBENV_ROOT/shims:$PATH
   eval "$(rbenv init -)"
 fi
 
