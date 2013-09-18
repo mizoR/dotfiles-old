@@ -57,7 +57,7 @@ run() {
 
 symlinks() {
   info == Start symlinks
-  dotfiles=$(ls $DOTFILES_PATH | grep -E '^dot\.')
+  local dotfiles="$(ls $DOTFILES_PATH | grep -E '^dot\.') bin"
   for dotfile in $dotfiles; do
     local new_dotfile=$(echo $dotfile | sed s/^dot//)
     debug Linking $new_dotfile...
