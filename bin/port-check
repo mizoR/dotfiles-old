@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# @(#) port-check
+# Usage:
+#   port-check hostname port1 [port2 [port3]...]
+#     hostname - 利用状況を確認するホスト
+#     port1    - 利用状況を確認するポート
+#
+# Description:
+#   ポートの利用状況を、開いているポート・閉じているポート毎に出力する
+#
+
+which nmap > /dev/null 2>&1
+if [ $? -gt 0 ]; then
+  echo 'nmap not found'
+  exit 1
+fi
+
+host=$1
+shift
+
+if [ -n $host ]; then
+  echo "usage: `basename $0` hostname port1 [port2 [port3]...]"
+  exit 1
+fi
+
+while [ -n "$1" ]; do
+  if nmap $host -p $1 | grep " open " > /dev/null; then
+    mopen="$mopen $1"
+  else
+    mclose="$mclose $1"
+  fi
+  shift
+done
+
+[ -n "$mopen" ]  && echo "Listening Ports     : $mopen"
+[ -n "$mclose" ] && echo "NOT Listening Ports : $mclose"
+
+exit 0
+
