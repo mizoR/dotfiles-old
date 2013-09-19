@@ -43,6 +43,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+export PATH=$HOME/bin:$PATH
+
 if [ -L ~/.rbenv ]; then
   export RBENV_ROOT=$HOME/.rbenv
   export PATH=$RBENV_ROOT/bin:$PATH
