@@ -1,0 +1,14 @@
+[user]
+  email = r.mizokami@gmail.com
+  name = mizokami
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = current
+[alias]
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
