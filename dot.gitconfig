@@ -11,4 +11,7 @@
 [push]
   default = current
 [alias]
+  # @see http://qiita.com/kyanny/items/10a57a4f1d2806e3a3b8
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  # @see http://d.hatena.ne.jp/thinca/20120924/1348491052
+  cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
