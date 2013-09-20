@@ -6,3 +6,20 @@ function csv2ascii() {
 function tsv2ascii() {
   curl --data-binary @- -X POST http://h2m.herokuapp.com/tsv2ascii
 }
+
+function echod() {
+  echo "\\033[1;34m$@\\033[0;39m"
+}
+
+function echoi() {
+  echo "\\033[1;32m$@\\033[0;39m"
+}
+
+function echow() {
+  echo "\\033[1;35;1m$@\\033[0;39m"
+}
+
+function echoe() {
+  echo "\\033[1;31;1m$@\\033[0;39m"
+}
+
