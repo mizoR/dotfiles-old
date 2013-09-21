@@ -65,3 +65,17 @@ chpwd() {
   ls
 }
 
+# '^' を押すと上のディレクトリに移動する
+function cdup() {
+  if [ -z "$BUFFER" ]; then
+    echo
+    cd ..
+    zle reset-prompt
+  else
+    zle self-insert '^'
+  fi
+}
+
+zle -N cdup
+bindkey '\^' cdup
+
