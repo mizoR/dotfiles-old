@@ -16,8 +16,8 @@ set tabstop=2
 set expandtab
 
 " カラースキーム
-set background=dark
-colorscheme jellybeans
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 if has("autocmd")
   " スケルトン
