@@ -19,7 +19,7 @@ fi
 host=$1
 shift
 
-if [ -n $host ]; then
+if [ ! -n "$host" ]; then
   echo "usage: `basename $0` hostname port1 [port2 [port3]...]"
   exit 1
 fi
