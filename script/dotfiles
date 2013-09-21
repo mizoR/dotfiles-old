@@ -75,6 +75,9 @@ symlinks() {
 after_symlinks() {
   info == Start after_symlinks
   run vim -c NeoBundleInstall -c "q!"
+  if [ ! -f $DOTFILES_PATH/bin/hub ];then
+    run curl http://hub.github.com/standalone -sLo $DOTFILES_PATH/bin/hub && chmod +x $DOTFILES_PATH/bin/hub
+  fi
   info == Finish after_symlinks
 }
 
@@ -99,6 +102,7 @@ update() {
     run git pull origin `git symbolic-ref --short HEAD`
     run git submodule foreach 'git pull origin master'
   )
+  run curl http://hub.github.com/standalone -sLo $DOTFILES_PATH/bin/hub && chmod +x $DOTFILES_PATH/bin/hub
   info == Finish update
 }
 

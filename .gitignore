@@ -1,3 +1,5 @@
+/bin/hub
+
 /dot.vim/bundle/*
 /dot.vim/.netrwhist
 !/dot.vim/bundle/neobundle.vim
