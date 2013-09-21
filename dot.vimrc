@@ -15,6 +15,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thinca/vim-quickrun'
 
 " neocomplcache
 NeoBundle 'Shougo/neocomplcache'
