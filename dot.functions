@@ -39,3 +39,20 @@ function extract() {
   esac
 }
 
+function google() {
+  if [ $# != 0 ]; then
+    local queries
+    for query in $*; do
+      queries="$queries+$query"
+    done
+    queries=`echo $queries | sed 's/^\+*//'`
+    open "https://www.google.co.jp/search?q=$queries"
+  else
+    open https://www.google.co.jp
+  fi
+}
+
+function gmail() {
+  open https://mail.google.com
+}
+
