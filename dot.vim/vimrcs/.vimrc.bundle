@@ -18,6 +18,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " @see https://github.com/scrooloose/syntastic
 NeoBundle 'scrooloose/syntastic'
 
+" tcomment_vim
+" Visualモード範囲選択時に<C-_><C-_> でコメントアウト
+NeoBundle 'tomtom/tcomment_vim'
+
 " QuickRun
 " @see https://github.com/thinca/vim-quickrun {{{{
   NeoBundle 'thinca/vim-quickrun'
