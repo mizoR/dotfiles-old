@@ -43,7 +43,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-export PATH=$HOME/bin:$PATH
+if [[ ":$PATH:" != *:"/usr/local/bin":* ]]; then
+  export PATH="/usr/local/bin:$PATH"
+fi
+
+if [[ ":$PATH:" != *:"$HOME/bin":* ]]; then
+  export PATH="$HOME/bin:$PATH"
+fi
 
 if [ -L ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
