@@ -1,6 +1,7 @@
 " 全般
 set encoding=utf-8
 set number
+set splitright
 
 " 検索
 set ignorecase
