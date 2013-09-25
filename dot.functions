@@ -56,3 +56,4 @@ function gmail() {
   open https://mail.google.com
 }
 
+function gi() { [ -n "$1" ] && curl "http://gitignore.io/api/$1" }
