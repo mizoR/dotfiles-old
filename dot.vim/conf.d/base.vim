@@ -7,6 +7,12 @@ set splitright
 set ignorecase
 set smartcase
 
+" 検索結果をハイライトする
+set hlsearch
+
+" <ESC>連打で検索結果ハイライトをリセット
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
 " インデント
 set autoindent
 set smartindent
@@ -21,4 +27,5 @@ if has("autocmd")
   autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb
   autocmd BufNewFile *.sh 0r ~/.vim/skeletons/skeleton.sh
 endif
+
 
