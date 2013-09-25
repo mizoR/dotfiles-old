@@ -22,6 +22,16 @@ NeoBundle 'scrooloose/syntastic'
 " Visualモード範囲選択時に<C-_><C-_> でコメントアウト
 NeoBundle 'tomtom/tcomment_vim'
 
+" vimproc
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'windows' : 'make -f make_mingw32.mak',
+  \     'cygwin'  : 'make -f make_cygwin.mak',
+  \     'mac'     : 'make -f make_mac.mak',
+  \     'unix'    : 'make -f make_unix.mak',
+  \    },
+  \ }
+
 " QuickRun
 " @see https://github.com/thinca/vim-quickrun {{{{
   NeoBundle 'thinca/vim-quickrun'
@@ -36,6 +46,7 @@ NeoBundle 'tomtom/tcomment_vim'
 
   " 初期値設定
   let g:quickrun_config = {}
+  let g:quickrun_config._ = {'runner' : 'vimproc'}
 
   " _spec.rb の場合、テストを実行
   let g:quickrun_config['ruby.rspec'] = {
