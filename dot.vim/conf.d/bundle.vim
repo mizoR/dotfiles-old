@@ -17,6 +17,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " vim-indent-guides
 " インデントをハイライトする {{{{
   NeoBundle 'nathanaelkane/vim-indent-guides'
+" }}}}
 
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors           = 0
@@ -24,6 +25,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   let g:indent_guides_guide_size            = 1
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" }}}}
+
+" lightline.vim
+" ステータスラインの表示のカスタマイズ {{{{
+  NeoBundle 'itchyny/lightline.vim'
+  let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+  set laststatus=2
+  set t_Co=256
 " }}}}
 
 " syntastic - Syntax checking hacks for vim
