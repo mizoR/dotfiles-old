@@ -16,10 +16,6 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-" カラースキーム
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-
 if has("autocmd")
   " スケルトン
   autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb

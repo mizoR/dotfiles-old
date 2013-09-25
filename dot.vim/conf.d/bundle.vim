@@ -14,6 +14,18 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" vim-indent-guides
+" インデントをハイライトする {{{{
+  NeoBundle 'nathanaelkane/vim-indent-guides'
+
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_auto_colors           = 0
+  let g:indent_guides_color_change_percent  = 30
+  let g:indent_guides_guide_size            = 1
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" }}}}
+
 " syntastic - Syntax checking hacks for vim
 " @see https://github.com/scrooloose/syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -116,16 +128,9 @@ NeoBundle 'Shougo/vimproc', {
 
 " カラーテーマ {{{
   NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'croaker/mustang-vim'
-  NeoBundle 'jeffreyiacono/vim-colors-wombat'
-  NeoBundle 'nanotech/jellybeans.vim'
-  NeoBundle 'vim-scripts/Lucius'
-  NeoBundle 'vim-scripts/Zenburn'
-  NeoBundle 'mrkn/mrkn256.vim'
-  NeoBundle 'jpo/vim-railscasts-theme'
-  NeoBundle 'therubymug/vim-pyte'
-  NeoBundle 'tomasr/molokai'
+
+  let g:hybrid_use_Xresources = 1
+  colorscheme hybrid
 " }}}}
 
 syntax on
