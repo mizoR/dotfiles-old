@@ -13,6 +13,9 @@ set hlsearch
 " <ESC>連打で検索結果ハイライトをリセット
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+" カレント行ハイライト
+set cursorline
+
 " インデント
 set autoindent
 set smartindent
