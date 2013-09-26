@@ -13,8 +13,9 @@ set hlsearch
 " <ESC>連打で検索結果ハイライトをリセット
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" カレント行ハイライト
+" カレント行に下線を引く
 set cursorline
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 " インデント
 set autoindent
