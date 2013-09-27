@@ -10,6 +10,7 @@
   grep = auto
 [core]
   excludesfile = ~/.gitignore
+  quotepath = false
 [push]
   default = current
 [alias]
