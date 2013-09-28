@@ -22,8 +22,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   let g:indent_guides_auto_colors           = 0
   let g:indent_guides_color_change_percent  = 30
   let g:indent_guides_guide_size            = 1
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkyellow
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
 " }}}}
 
 " lightline.vim
@@ -137,10 +137,11 @@ NeoBundle 'Shougo/vimproc', {
 " }}}}
 
 " カラーテーマ {{{
-  NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle 'altercation/vim-colors-solarized'
 
-  let g:hybrid_use_Xresources = 1
-  colorscheme hybrid
+  let g:solarized_termtrans=1
+  set background=dark
+  colorscheme solarized
 " }}}}
 
 syntax on
