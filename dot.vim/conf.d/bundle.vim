@@ -10,6 +10,10 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+if stridx($TERM, "xterm-256color") >= 0
+  set t_Co=256
+endif
+
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -31,7 +35,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     \ 'colorscheme': 'wombat',
     \ }
   set laststatus=2
-  set t_Co=256
 " }}}}
 
 " syntastic - Syntax checking hacks for vim
@@ -137,7 +140,12 @@ NeoBundle 'Shougo/vimproc', {
 " カラーテーマ {{{
   NeoBundle 'altercation/vim-colors-solarized'
 
-  let g:solarized_termtrans=1
+  if stridx($TERM, "xterm-256color") >= 0
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors= 256
+    let g:solarized_contrast = "high"
+  endif
+
   set background=dark
   colorscheme solarized
 " }}}}
