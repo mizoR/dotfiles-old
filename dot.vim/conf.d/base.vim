@@ -32,4 +32,6 @@ if has("autocmd")
   autocmd BufNewFile *.sh 0r ~/.vim/skeletons/skeleton.sh
 endif
 
+" ヤンク時にクリップボードにコピー
+set clipboard=unnamed,autoselect
 
