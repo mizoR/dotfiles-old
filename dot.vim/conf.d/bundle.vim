@@ -150,6 +150,8 @@ NeoBundle 'Shougo/vimproc', {
   colorscheme solarized
 " }}}}
 
+NeoBundle 'tpope/vim-surround'
+
 syntax on
 filetype plugin on
 filetype indent on
