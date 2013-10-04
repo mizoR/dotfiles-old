@@ -64,6 +64,8 @@ NeoBundle 'Shougo/vimproc', {
     autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
   augroup END
 
+  autocmd BufNewFile,BufRead *.go  set filetype=go
+
   autocmd BufRead,BufNewFile *.mkd set filetype=mkd
   autocmd BufRead,BufNewFile *.md  set filetype=mkd
 
@@ -81,6 +83,12 @@ NeoBundle 'Shougo/vimproc', {
   let g:quickrun_config['mkd'] = {
   \   'exec': '%c %s',
   \   'command': 'markdown',
+  \ }
+" }}}}
+
+  let g:quickrun_config['go'] = {
+  \   'exec': '%c run %s',
+  \   'command': 'go',
   \ }
 " }}}}
 
