@@ -1,1 +1,2 @@
 alias google-closure-compiler='java -jar ~/dotfiles/lib/google-closure-compiler/compiler.jar'
+alias c='pygmentize -O style=monokai -f console256 -g'
