@@ -10,7 +10,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-if stridx($TERM, "xterm-256color") >= 0
+if stridx($TERM, 'xterm-256color') >= 0
   set t_Co=256
 endif
 
@@ -148,10 +148,10 @@ NeoBundle 'Shougo/vimproc', {
 " カラーテーマ {{{
   NeoBundle 'altercation/vim-colors-solarized'
 
-  if stridx($TERM, "xterm-256color") >= 0
+  if stridx($TERM, 'xterm-256color') >= 0
     let g:solarized_termtrans=1
     let g:solarized_termcolors= 256
-    let g:solarized_contrast = "high"
+    let g:solarized_contrast = 'high'
   endif
 
   set background=dark

@@ -26,7 +26,7 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-if has("autocmd")
+if has('autocmd')
   " スケルトン
   autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb
   autocmd BufNewFile *.sh 0r ~/.vim/skeletons/skeleton.sh
