@@ -80,15 +80,15 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'thinca/vim-quickrun'
 
-augroup QuickRunRSpec
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-augroup END
-
-autocmd BufNewFile,BufRead *.go  set filetype=go
-
-autocmd BufRead,BufNewFile *.mkd set filetype=mkd
-autocmd BufRead,BufNewFile *.md  set filetype=mkd
+" BufNewFile    存在しないファイルの編集を始めたとき。
+" BufRead       新しいバッファの編集を始めたときの、ファイルを
+"               バッファに読み込んだ後で、モードラインを実行する前。
+" @see https://sites.google.com/site/vimdocja/autocmd-html
+autocmd BufNewFile,BufRead *_spec.rb  set filetype=ruby.rspec
+autocmd BufNewFile,BufRead *.go       set filetype=go
+autocmd BufNewFile,BufRead *.markdown set filetype=mkd
+autocmd BufNewFile,BufRead *.mkd      set filetype=mkd
+autocmd BufNewFile,BufRead *.md       set filetype=mkd
 
 " 初期値設定
 let g:quickrun_config = {}
