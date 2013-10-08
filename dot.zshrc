@@ -56,6 +56,11 @@ if [ -L ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -d ~/.nodebrew ]; then
+  export NODEBREW_ROOT=$HOME/.nodebrew
+  export PATH=$NODEBREW_ROOT/current/bin:$PATH
+fi
+
 if [ -L ~/.zsh-completions ]; then
   fpath=(~/.zsh-completions/src $fpath)
   autoload -U compinit; compinit
