@@ -12,6 +12,7 @@
   excludesfile = ~/.gitignore
   quotepath = false
   precomposeunicode = true
+  editor = /usr/bin/vim
 [push]
   default = current
 [alias]
