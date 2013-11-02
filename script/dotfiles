@@ -99,7 +99,7 @@ update() {
   info == Start update
   (
     run cd $DOTFILES_PATH
-    run git pull origin `git symbolic-ref --short HEAD`
+    run git submodule foreach 'git checkout master'
     run git submodule foreach 'git pull origin master'
   )
   run vim -c NeoBundleUpdate -c "q!"
