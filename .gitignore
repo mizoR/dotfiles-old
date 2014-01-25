@@ -1,4 +1,5 @@
 /bin/hub
+/bin/youtube-dl
 
 /dot.vim/bundle/*
 /dot.vim/.netrwhist
