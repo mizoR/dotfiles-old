@@ -1,4 +1,5 @@
 /bin/hub
+/bin/duo
 /bin/youtube-dl
 
 /dot.vim/bundle/*
