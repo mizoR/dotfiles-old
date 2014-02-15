@@ -1,6 +1,7 @@
 /bin/hub
 /bin/duo
 /bin/youtube-dl
+/bin/github_issues
 
 /dot.vim/bundle/*
 /dot.vim/.netrwhist
