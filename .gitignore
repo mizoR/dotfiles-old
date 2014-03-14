@@ -7,4 +7,6 @@
 /dot.vim/.netrwhist
 !/dot.vim/bundle/neobundle.vim
 
+/tmp
+
 /backupfiles
