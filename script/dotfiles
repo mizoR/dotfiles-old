@@ -104,6 +104,12 @@ update() {
   )
   run vim -c NeoBundleUpdate -c "q!"
   run curl http://hub.github.com/standalone -sLo $DOTFILES_PATH/bin/hub && chmod +x $DOTFILES_PATH/bin/hub
+
+  for submodule in `git submodule foreach pwd | grep -v Entering`; do
+    cd $submodule;
+    run git checkout master
+  done
+  run cd $DOTFILES_PATH
   info == Finish update
 }
 
