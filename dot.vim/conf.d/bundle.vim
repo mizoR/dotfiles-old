@@ -169,6 +169,11 @@ nnoremap <silent> [unite]f :<C-u>UniteWithCurrentDir file<CR>
 " ファイル一覧を開く - Most Recently Used
 nnoremap <silent> [unite]u :<C-u>UniteWithCurrentDir file_mru<CR>
 
+" ----------------------------------------
+" MRU plugin includes unite.vim MRU sources
+" ----------------------------------------
+
+NeoBundle 'Shougo/neomru.vim'
 
 " ------------
 " カラーテーマ
