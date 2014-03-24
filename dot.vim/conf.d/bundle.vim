@@ -100,7 +100,6 @@ let g:quickrun_config['ruby.rspec'] = {
   \   'command': 'rspec',
   \ }
 
-" _spec.rb の場合、テストを実行
 let g:quickrun_config['mkd'] = {
   \   'exec': '%c %s',
   \   'command': 'markdown',
