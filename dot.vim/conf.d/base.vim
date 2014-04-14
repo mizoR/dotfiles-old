@@ -26,6 +26,10 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+autocmd FileType java set tabstop=4
+autocmd FileType java set shiftwidth=4
+
+
 if has('autocmd')
   " スケルトン
   autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb
