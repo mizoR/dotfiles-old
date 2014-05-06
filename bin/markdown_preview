@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ ! -f "$1" ]; then
+  echo "file not found(filename=$1)"
+  exit 1
+fi
+
+if type markdown > /dev/null 2>&1; then
+  if type w3m > /dev/null 2>&1; then
+    markdown $1 | w3m -T text/html
+  else
+    markdown $1
+  fi
+else
+  echo "$0: command not found"
+  exit 1
+fi

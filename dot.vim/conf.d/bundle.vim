@@ -102,7 +102,7 @@ let g:quickrun_config['ruby.rspec'] = {
 
 let g:quickrun_config['mkd'] = {
   \   'exec': '%c %s',
-  \   'command': 'markdown',
+  \   'command': 'markdown_preview',
   \ }
 
 let g:quickrun_config['go'] = {
