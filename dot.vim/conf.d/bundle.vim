@@ -96,8 +96,9 @@ let g:quickrun_config._ = {'runner' : 'vimproc'}
 
 " _spec.rb の場合、テストを実行
 let g:quickrun_config['ruby.rspec'] = {
-  \   'exec': 'bundle exec %c %s',
+  \   'exec': 'bundle exec %c %o %s %a',
   \   'command': 'rspec',
+  \   'cmdopt': "-l %{line('.')}",
   \ }
 
 let g:quickrun_config['mkd'] = {
