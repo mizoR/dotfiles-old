@@ -6,6 +6,8 @@ ZSH_THEME="eastwood"
 
 plugins=(git)
 
+DISABLE_AUTO_UPDATE="true"
+
 source $ZSH/oh-my-zsh.sh
 
 if [[ ":$PATH:" != *:"/usr/local/bin":* ]]; then
