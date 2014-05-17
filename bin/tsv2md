@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+
+class Array
+  def to_markdown_table_row
+    "| " + self.join(" | ") + " |"
+  end
+end
+
+col_sep = "\t"
+including_header = true
+
+begin
+  CSV($stdin, col_sep: col_sep) do |csv|
+    if including_header
+      headers = csv.shift
+      puts headers.to_markdown_table_row
+      puts (['---'] * headers.length).to_markdown_table_row
+    end
+
+    csv.each do |row|
+      puts row.to_markdown_table_row
+    end
+  end
+rescue Errno::EPIPE
+end
+
