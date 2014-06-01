@@ -57,3 +57,5 @@ bindkey '\^' cdup
 
 # https://github.com/huyng/bashmarks
 source $HOME/bin/bashmarks.sh
+
+export BUNDLER_EDITOR=~/bin/bundler.sh
