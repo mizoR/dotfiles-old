@@ -22,3 +22,5 @@
   cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 [merge]
   tool = vimdiff
+[pull]
+	rebase = true
