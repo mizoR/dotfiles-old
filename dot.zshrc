@@ -76,6 +76,8 @@ if [ -x "`which peco`" ]; then
       tac="tail -r"
     fi
     BUFFER=$(fc -l -n 1 | \
+      sort | \
+      uniq | \
       eval $tac | \
       peco --query "$LBUFFER")
     CURSOR=$#BUFFER
