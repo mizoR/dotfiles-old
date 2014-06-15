@@ -59,3 +59,28 @@ bindkey '\^' cdup
 source $HOME/bin/bashmarks.sh
 
 export BUNDLER_EDITOR=~/bin/bundler.sh
+
+if [ -x "`which go`" ]; then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+# https://github.com/lestrrat/peco
+if [ -x "`which peco`" ]; then
+  function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+      tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | \
+      eval $tac | \
+      peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+  }
+  zle -N peco-select-history
+  bindkey '^r' peco-select-history
+fi
