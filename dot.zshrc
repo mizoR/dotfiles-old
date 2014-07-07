@@ -87,13 +87,26 @@ if [ -x "`which peco`" ]; then
 
   # http://weblog.bulknews.net/post/89635306479/ghq-peco-percol
   function peco-src () {
-      local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-      if [ -n "$selected_dir" ]; then
-          BUFFER="cd ${selected_dir}"
-          zle accept-line
-      fi
-      zle clear-screen
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+      BUFFER="cd ${selected_dir}"
+      zle accept-line
+    fi
+    zle clear-screen
   }
   zle -N peco-src
   bindkey '^]' peco-src
+
+
+  function peco-git-recent-branches () {
+    local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+        perl -pne 's{^refs/heads/}{}' | \
+        peco --query "$LBUFFER")
+    if [ -n "$selected_branch" ]; then
+      BUFFER="git checkout ${selected_branch}"
+      zle accept-line
+    fi
+  }
+  zle -N peco-git-recent-branches
+  bindkey '^b' peco-git-recent-branches
 fi
