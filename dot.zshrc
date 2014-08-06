@@ -30,7 +30,7 @@ fi
 
 if [ -L ~/.zsh-completions ]; then
   fpath=(~/.zsh-completions/src $fpath)
-  autoload -U compinit; compinit
+  autoload -U compinit; compinit -u
 fi
 
 for file in ~/.{aliases,functions}; do
