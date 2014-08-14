@@ -28,6 +28,8 @@ set expandtab
 
 autocmd FileType java set tabstop=4
 autocmd FileType java set shiftwidth=4
+autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
+
 
 
 if has('autocmd')
