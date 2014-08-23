@@ -109,4 +109,13 @@ if [ -x "`which peco`" ]; then
   }
   zle -N peco-git-recent-branches
   bindkey '^b' peco-git-recent-branches
+
+  function peco-select-github-issue () {
+    local repo=$(ghq list | grep 'github.com' | peco | sed -e "s/^github.com\///g")
+    local issue_id=$(ghi list -- $repo | peco | tr -s " " | cut -f2 -d" ")
+    ghi show $issue_id -- $repo
+    zle accept-line
+  }
+  zle -N peco-select-github-issue
+  bindkey '^p' peco-select-github-issue
 fi
