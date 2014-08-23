@@ -24,3 +24,7 @@
   tool = vimdiff
 [pull]
 	rebase = true
+[github]
+	user = mizoR
+[ghi]
+	token = !security find-internet-password -a mizoR -s github.com -l 'ghi token' -w
