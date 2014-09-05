@@ -209,6 +209,11 @@ NeoBundle 'rodjek/vim-puppet'
 
 NeoBundle 'fatih/vim-go'
 
+" ----------------------------------
+" CoffeeScript support for vim
+" ----------------------------------
+NeoBundle 'kchmck/vim-coffee-script'
+
 " ====================================
 " プラグインのインストール（ここまで）
 " ====================================
