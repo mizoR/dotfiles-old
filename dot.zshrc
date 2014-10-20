@@ -28,6 +28,11 @@ if [ -d ~/.nodebrew ]; then
   export PATH=$NODEBREW_ROOT/current/bin:$PATH
 fi
 
+XCODE_BIN=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+if [ -d $XCODE_BIN ]; then
+  export PATH="$XCODE_BIN:$PATH"
+fi
+
 if [ -L ~/.zsh-completions ]; then
   fpath=(~/.zsh-completions/src $fpath)
   autoload -U compinit; compinit -u
