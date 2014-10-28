@@ -217,6 +217,11 @@ NeoBundle 'fatih/vim-go'
 " ----------------------------------
 NeoBundle 'kchmck/vim-coffee-script'
 
+" ----------------------------------
+" Adds Swift support to vim. It covers syntax, intenting, and more.
+" ----------------------------------
+NeoBundle 'toyamarinyon/vim-swift'
+
 " ====================================
 " プラグインのインストール（ここまで）
 " ====================================
