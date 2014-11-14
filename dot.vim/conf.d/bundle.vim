@@ -89,6 +89,7 @@ NeoBundle 'thinca/vim-quickrun'
 " @see https://sites.google.com/site/vimdocja/autocmd-html
 autocmd BufNewFile,BufRead *_spec.rb  set filetype=ruby.rspec
 autocmd BufNewFile,BufRead *.go       set filetype=go
+autocmd BufNewFile,BufRead *.swift    set filetype=swift
 autocmd BufNewFile,BufRead *.markdown set filetype=mkd
 autocmd BufNewFile,BufRead *.mkd      set filetype=mkd
 autocmd BufNewFile,BufRead *.md       set filetype=mkd
@@ -114,6 +115,10 @@ let g:quickrun_config['go'] = {
   \   'command': 'go',
   \ }
 
+let g:quickrun_config['swift'] = {
+  \   'exec': '%c %s',
+  \   'command': 'swift',
+  \ }
 
 " ----------------------------------------
 " Ultimate auto-completion system for Vim.
