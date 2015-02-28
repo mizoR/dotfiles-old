@@ -34,7 +34,6 @@ autocmd BufNewFile,BufRead *.go    set noexpandtab tabstop=4 shiftwidth=4
 
 if has('autocmd')
   " スケルトン
-  autocmd BufNewFile *.rb 0r ~/.vim/skeletons/skeleton.rb
   autocmd BufNewFile *.sh 0r ~/.vim/skeletons/skeleton.sh
 endif
 
