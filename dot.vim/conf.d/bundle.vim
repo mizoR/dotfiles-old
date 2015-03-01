@@ -228,6 +228,11 @@ NeoBundle 'kchmck/vim-coffee-script'
 " ----------------------------------
 NeoBundle 'toyamarinyon/vim-swift'
 
+" ----------------------------------
+" Syntax highlighting for VIM
+" ----------------------------------
+NeoBundle 'slim-template/vim-slim'
+
 " ====================================
 " プラグインのインストール（ここまで）
 " ====================================
