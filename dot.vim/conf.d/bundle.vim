@@ -94,6 +94,7 @@ autocmd BufNewFile,BufRead *.markdown set filetype=mkd
 autocmd BufNewFile,BufRead *.mkd      set filetype=mkd
 autocmd BufNewFile,BufRead *.md       set filetype=mkd
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+autocmd BufNewFile,BufRead *.cap      set filetype=ruby
 
 " 初期値設定
 let g:quickrun_config = {}
