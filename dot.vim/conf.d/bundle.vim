@@ -14,12 +14,10 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 
 " neobundle.vim で更新を行えるようにする
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 
 " ====================================
 " プラグインのインストール（ここから）
@@ -198,7 +196,6 @@ if stridx($TERM, 'xterm-256color') >= 0
 endif
 
 set background=dark
-colorscheme solarized
 
 
 " ----------------------------------
@@ -233,6 +230,7 @@ NeoBundle 'toyamarinyon/vim-swift'
 " Syntax highlighting for VIM
 " ----------------------------------
 NeoBundle 'slim-template/vim-slim'
+call neobundle#end()
 
 " ====================================
 " プラグインのインストール（ここまで）
@@ -242,6 +240,9 @@ NeoBundle 'slim-template/vim-slim'
 syntax on
 filetype plugin on
 filetype indent on
+
+" HACK: カラースキームの設定を後ろに移動しないとテーマが見つからない
+colorscheme solarized
 
 " プラグインがインストールされているかチェックする
 NeoBundleCheck
