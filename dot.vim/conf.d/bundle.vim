@@ -105,11 +105,6 @@ let g:quickrun_config['ruby.rspec'] = {
   \   'cmdopt': "-l %{line('.')}",
   \ }
 
-let g:quickrun_config['mkd'] = {
-  \   'exec': '%c %s',
-  \   'command': 'markdown_preview',
-  \ }
-
 let g:quickrun_config['go'] = {
   \   'exec': '%c run %s',
   \   'command': 'go',
