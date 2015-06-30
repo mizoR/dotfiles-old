@@ -60,9 +60,6 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
-# https://github.com/huyng/bashmarks
-source $HOME/bin/bashmarks.sh
-
 export BUNDLER_EDITOR=~/dotfiles/bin/bundler.sh
 
 if [ -x "`which go`" ]; then
