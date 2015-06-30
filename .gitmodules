@@ -10,6 +10,3 @@
 [submodule "dot.zsh-completions"]
 	path = dot.zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
-[submodule "lib/git-stock"]
-	path = lib/git-stock
-	url = git://gist.github.com/7052884.git
