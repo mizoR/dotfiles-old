@@ -1,3 +1,6 @@
+function git() {
+  hub "$@"
+}
 
 function csv2ascii() {
   curl --data-binary @- -X POST http://h2m.herokuapp.com/csv2ascii
