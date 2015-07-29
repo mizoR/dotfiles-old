@@ -1,7 +1,7 @@
 [include]
   path = ~/.gitconfig.local
 [user]
-  email = suzunatsu@yahoo.com
+  email = r.mizokami@gmail.com
   name = mizokami
 [color]
   diff = auto
