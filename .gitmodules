@@ -4,6 +4,7 @@
 [submodule "dot.rbenv"]
 	path = dot.rbenv
 	url = git@github.com:sstephenson/rbenv.git
+	ignore = dirty
 [submodule "dot.vim/bundle/neobundle.vim"]
 	path = dot.vim/bundle/neobundle.vim
 	url = git@github.com:Shougo/neobundle.vim.git
