@@ -53,6 +53,9 @@ set laststatus=2
 
 NeoBundle 'scrooloose/syntastic'
 
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
 
 " ---------------------------------------------------
 " Visualモード範囲選択時に<C-_><C-_> でコメントアウト
