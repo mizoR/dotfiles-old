@@ -112,12 +112,13 @@ if [ -x "`which peco`" ]; then
   zle -N peco-git-recent-branches
   bindkey '^b' peco-git-recent-branches
 
-  function peco-select-github-issue () {
-    local repo=$(ghq list | grep 'github.com' | peco | sed -e "s/^github.com\///g")
-    local issue_id=$(ghi list -- $repo | peco | tr -s " " | cut -f2 -d" ")
-    ghi show $issue_id -- $repo
-    zle accept-line
+  function peco-dropbox () {
+    local dir=$(find ~/Dropbox/*/* -d | peco --query "$LBUFFER")
+    if [ -n "$dir" ]; then
+      BUFFER="cd ${dir}"
+      zle accept-line
+    fi
   }
-  zle -N peco-select-github-issue
-  bindkey '^p' peco-select-github-issue
+  zle -N peco-dropbox
+  bindkey '^[' peco-dropbox
 fi
