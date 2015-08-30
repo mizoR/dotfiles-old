@@ -214,6 +214,8 @@ NeoBundle 'rodjek/vim-puppet'
 
 NeoBundle 'fatih/vim-go'
 
+let g:go_fmt_command = "goimports"
+
 " ----------------------------------
 " CoffeeScript support for vim
 " ----------------------------------
