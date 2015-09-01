@@ -1,2 +1,7 @@
 alias google-closure-compiler='java -jar ~/dotfiles/lib/google-closure-compiler/compiler.jar'
 alias c='pygmentize -O style=monokai -f console256 -g'
+
+which strace >/dev/null 2>&1
+if [ $? -ne 0 ];then
+  alias strace='sudo dtruss'
+fi
