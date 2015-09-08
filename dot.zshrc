@@ -33,6 +33,12 @@ if [ -d $XCODE_BIN ]; then
   export PATH="$XCODE_BIN:$PATH"
 fi
 
+if [ -d $PYENV_ROOT ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
 if [ -L ~/.zsh-completions ]; then
   fpath=(~/.zsh-completions/src $fpath)
   autoload -U compinit; compinit -u
