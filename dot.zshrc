@@ -128,3 +128,7 @@ if [ -x "`which peco`" ]; then
   zle -N peco-dropbox
   bindkey '^[' peco-dropbox
 fi
+
+if [ -x "`which dirnenv`" ]; then
+  eval "$(direnv hook zsh)"
+fi
