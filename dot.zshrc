@@ -14,6 +14,8 @@ if [[ ":$PATH:" != *:"/usr/local/bin":* ]]; then
   export PATH="/usr/local/bin:$PATH"
 fi
 
+. ~/google-cloud-sdk/path.zsh.inc
+
 if [[ ":$PATH:" != *:"$HOME/bin":* ]]; then
   export PATH="$HOME/bin:$PATH"
 fi
